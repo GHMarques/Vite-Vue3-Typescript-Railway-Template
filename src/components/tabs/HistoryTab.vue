@@ -3,9 +3,10 @@ import HistoryCard from '../cards/HistoryCard.vue';
 import { useQuasar } from 'quasar';
 import { ref } from 'vue';
 import TransactionService from '../../services/TransactionService';
+import { Transaction } from '../../types/Transaction';
 
 const $q = useQuasar();
-const transactions = ref([]);
+const transactions = ref<Transaction[]>([]);
 async function get() {
   $q.loading.show();
 

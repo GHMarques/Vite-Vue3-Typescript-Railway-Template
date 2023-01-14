@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useQuasar } from 'quasar';
-
-const $q = useQuasar();
 import { Transaction, TransactionType } from '../../types/Transaction';
 
+const $q = useQuasar();
 const props = defineProps<{ transaction: Transaction }>();
 </script>
 

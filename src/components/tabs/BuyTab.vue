@@ -3,10 +3,11 @@ import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 import PokemonCard from '../cards/PokemonCard.vue';
 import PokemonService from '../../services/PokemonService';
-import { FilterPokemon } from '../../types/Pokemon';
+import { FilterPokemon, Pokemon } from '../../types/Pokemon';
+import { TransactionType } from '../../types/Transaction';
 
 const $q = useQuasar();
-const pokemons = ref([]);
+const pokemons = ref<Pokemon[]>([]);
 const pokemonName = ref('');
 
 async function filter() {
@@ -17,6 +18,7 @@ async function filter() {
   pokemons.value = await PokemonService.filter(data);
   $q.loading.hide();
 }
+const type: TransactionType = TransactionType.Buy;
 filter();
 </script>
 
@@ -43,7 +45,7 @@ filter();
   </q-form>
 
   <div v-for="pokemon in pokemons" :key="pokemon.id" class="row justify-center">
-    <PokemonCard :pokemon="pokemon" type="buy" class="col-6" />
+    <PokemonCard :pokemon="pokemon" :type="type" class="col-6" />
   </div>
 </template>
 

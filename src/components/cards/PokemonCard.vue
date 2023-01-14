@@ -3,11 +3,10 @@ import { ref } from 'vue';
 import { useQuasar } from 'quasar';
 import TransactionService from '../../services/TransactionService';
 import { BuyPokemon } from '../../types/Pokemon';
-
-const $q = useQuasar();
 import { Pokemon } from '../../types/Pokemon';
 import { TransactionType } from '../../types/Transaction';
 
+const $q = useQuasar();
 const props = defineProps<{ pokemon: Pokemon; type: TransactionType }>();
 const quantity = ref(0);
 function onSubmit(evt: any) {

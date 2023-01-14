@@ -5,7 +5,7 @@ import { Dashboard } from '../../types/Dashboard';
 import DashboardService from '../../services/DashboardService';
 
 const $q = useQuasar();
-const dashboard = ref('');
+const dashboard = ref<Dashboard>();
 async function getInfo() {
   $q.loading.show();
   dashboard.value = await DashboardService.getInfo();
