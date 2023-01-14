@@ -9,3 +9,4 @@ dist-ssr
 .env.development
 .idea
 package-lock.json
+.nvmrc
